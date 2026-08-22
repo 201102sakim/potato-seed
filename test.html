@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>밭 격자 범위 시각화</title>
+<style>
+#container {
+position: relative;
+width: 480px;
+height: 720px;
+}
+#bg-img {
+width: 480px;
+height: 720px;
+position: absolute;
+top: 0;
+left: 0;
+}
+.grid-overlay {
+position: absolute;
+left: 50px;
+top: 260px;
+width: 260px;
+height: 415px;
+display: grid;
+grid-template-columns: repeat(6, 1fr);
+grid-template-rows: repeat(10, 1fr);
+}
+.tile {
+border: 1px solid red;
+box-sizing: border-box;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 10px;
+color: yellow;
+font-weight: bold;
+background: rgba(255, 0, 0, 0.25);
+}
+</style>
+</head>
+<body>
+<div id="container">
+<img id="bg-img" src="farm_morning.png" alt="농장 맵">
+<div class="grid-overlay" id="grid"></div>
+</div>
+
+<script>
+const gridContainer = document.getElementById('grid');
+for (let i = 1; i <= 60; i++) {
+const tile = document.createElement('div');
+tile.className = 'tile';
+tile.innerText = i;
+gridContainer.appendChild(tile);
+}
+</script>
+</body>
+</html>
